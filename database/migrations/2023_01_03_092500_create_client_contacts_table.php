@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('client_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('name');
             $table->string('phone');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

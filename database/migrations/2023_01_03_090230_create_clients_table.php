@@ -17,9 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('trn');
-            $table->string('phone')->unique();
-            $table->string('location');
-            $table->rememberToken();
+            $table->string('phone');
+            $table->string('location')->nullable();
             $table->timestamps();
         });
     }

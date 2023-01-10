@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('country');
             $table->string('city');
             $table->string('address');
+            $table->string('client_ref')->nullable();
             $table->foreignId('client_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('client_contact_id')->constrained('client_contacts')->cascadeOnUpdate()->cascadeOnDelete();
             $table->text('payment_terms');

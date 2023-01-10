@@ -85,26 +85,51 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
-        $request->validate([
-            'name'=>'required|string|max:255',
-            'email'=>'required|email|unique:users,email,'.$user->id,
-            'phone'=>'nullable|numeric|unique:users,phone,'.$user->cid,
-            'password'=>'nullable|confirmed|min:6',
-            'role'=>'required|string|max:255'
-        ]);
+        $user = User::whereId($id)->first();
+        if ($user) {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|unique:users,email,' . $user->id,
+                'phone' => 'nullable|numeric|unique:users,phone,' . $user->cid,
+                'password' => 'nullable|confirmed|min:6',
+                'role' => 'required|string|max:255'
+            ]);
 
-        dd($user);
+            $user->update($request->all());
+            return response()->json([
+                'status' => true,
+                'msg' => 'User Updated Successfully '
+            ]);
+        }else{
+            return response()->json([
+                'status'=>false,
+                'msg'=>'Not Found'
+            ]);
+        }
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return
      */
     public function destroy($id)
     {
-        //
+        $user = User::whereId($id)->first();
+        if ($user && $id != auth('api')->user()->id){
+            $user->delete();
+            return response()->json([
+                'status'=>true,
+                'msg'=>'User Deleted Successfully '
+            ]);
+        }else{
+            return response()->json([
+                'status'=>false,
+                'msg'=>'Not Found'
+            ]);
+        }
+
     }
 }
