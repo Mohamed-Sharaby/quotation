@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientContactController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -20,6 +22,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::resource('client_contacts', ClientContactController::class);
     Route::resource('settings', SettingController::class);
     Route::resource('projects', ProjectController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('services', ServiceController::class);
 
 
 });
