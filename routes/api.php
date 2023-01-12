@@ -4,7 +4,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientContactController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\QuotationController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
@@ -24,6 +26,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::resource('projects', ProjectController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('services', ServiceController::class);
+    Route::resource('items', ItemController::class);
+    Route::resource('quotations', QuotationController::class);
 
 
 });
