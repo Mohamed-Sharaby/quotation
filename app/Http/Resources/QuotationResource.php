@@ -22,7 +22,6 @@ class QuotationResource extends JsonResource
             'version' => $this->version ?? '',
             'status' => $this->status ?? '',
             'notes' => $this->notes ?? '',
-
         ];
     }
 }

@@ -22,6 +22,14 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(AdminSeeder::class);
+        $this->call(ClientSeeder::class);
+        $this->call(ClientContactSeeder::class);
+        $this->call(ProjectSeeder::class);
+        $this->call(SectionSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(ServiceSeeder::class);
+        $this->call(ItemSeeder::class);
+//        $this->call(QuotationSeeder::class);
         $this->call(SettingSeeder::class);
     }
 }

@@ -15,12 +15,29 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'Super Admin',
-            'email' => 'admin@admin.com',
-            'phone' => '123456',
-            'password' => '123456',
-            'role' => 'admin'
-        ]);
+        $users = [
+            [
+                'name' => 'Admin',
+                'email' => 'admin@admin.com',
+                'phone' => '5675473',
+                'password' => '123456',
+                'role' => 'admin'
+            ],[
+                'name' => 'Ahmed',
+                'email' => 'ahmed@ahmed.com',
+                'phone' => '4365346345',
+                'password' => '123456',
+                'role' => 'admin'
+            ],[
+                'name' => 'Ali',
+                'email' => 'ali@ali.com',
+                'phone' => '56534656',
+                'password' => '123456',
+                'role' => 'admin'
+            ]
+        ];
+
+        foreach ($users as $user)
+        User::create($user);
     }
 }

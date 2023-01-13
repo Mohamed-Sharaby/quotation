@@ -36,12 +36,6 @@ class QuotationController extends Controller
 
         $quotation = Quotation::create($data);
         $quotation->items()->createMany($request->items);
-//        foreach ($request->items as $item) {
-//            QuotationItem::create([
-//                'quotation_id' => $quotation->id,
-//                'item_id' => $item['item_id'],
-//            ]);
-//        }
 
         DB::commit();
         return response()->json([
@@ -82,7 +76,6 @@ class QuotationController extends Controller
                 'msg' => 'Not Found'
             ]);
         }
-
     }
 
 
@@ -101,7 +94,6 @@ class QuotationController extends Controller
                 'msg' => 'Not Found'
             ]);
         }
-
     }
 
 }
