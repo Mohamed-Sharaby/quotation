@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('service_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->integer('quantity')->nullable();
+//            $table->integer('quantity')->nullable();
             $table->decimal('item_price',8,2)->nullable();
             $table->decimal('selling_price',8,2)->nullable();
             $table->decimal('discount')->nullable();

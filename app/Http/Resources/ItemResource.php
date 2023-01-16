@@ -20,7 +20,7 @@ class ItemResource extends JsonResource
             'description' => $this->description,
             'category_id' => $this->category->title ?? '',
             'service_id' => $this->service->name ?? '',
-            'quantity' => $this->quantity ?? '',
+//            'quantity' => $this->quantity ?? '',
             'item_price' => $this->item_price ?? '',
             'selling_price' => $this->selling_price ?? '',
             'discount' => $this->discount ?? '',

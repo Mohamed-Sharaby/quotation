@@ -18,6 +18,8 @@ class Quotation extends Model
         'notes',
     ];
 
+    protected $casts = ['date' => 'date'];
+
     public function items()
     {
         return $this->hasMany(QuotationItem::class);
@@ -31,6 +33,11 @@ class Quotation extends Model
     public function project()
     {
         return $this->belongsTo(Project::class);
+    }
+
+    public function getTotalAttribute()
+    {
+        return $this->items()->get()->sum('total_price');
     }
 
 }

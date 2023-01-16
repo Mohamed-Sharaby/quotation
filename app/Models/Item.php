@@ -13,7 +13,6 @@ class Item extends Model
         'title',
         'description',
         'category_id',
-        'quantity',
         'item_price',
         'selling_price',
         'discount',

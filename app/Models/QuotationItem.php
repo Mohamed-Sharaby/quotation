@@ -12,6 +12,8 @@ class QuotationItem extends Model
     protected $fillable = [
         'quotation_id',
         'item_id',
+        'quantity',
+        'price',
     ];
 
     public function quotation()
@@ -22,6 +24,11 @@ class QuotationItem extends Model
     public function item()
     {
         return $this->belongsTo(Item::class);
+    }
+
+    public function getTotalPriceAttribute()
+    {
+        return $this->price * $this->quantity;
     }
 
 }
