@@ -11,7 +11,7 @@ class responder
 
     public static function error($data)
     {
-        return response()->json(['status' => false, 'msg' => $data]);
+        return response()->json(['status' => false, 'msg' => $data],404);
     }
 }
 
